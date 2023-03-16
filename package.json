@@ -1,0 +1,29 @@
+{
+  "name": "awi-festival-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon serveur.js",
+    "start": "node serveur.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EAgnese/awi-festival-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EAgnese/awi-festival-api/issues"
+  },
+  "homepage": "https://github.com/EAgnese/awi-festival-api#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.21"
+  }
+}
