@@ -18,7 +18,7 @@ connection.connect(function(err) {
       console.log('Connexion error ' + err + ' ' + err.code);
       return;
   }
-  console.log('connexion  ok!');
+  res.end('connexion  ok!');
 });
 
 module.exports = connection
