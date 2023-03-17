@@ -27,7 +27,7 @@ function selectFestivalById(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème sélection d'une festival"})
+        res.status(500).send({msg: "Problème sélection d'un festival"})
         console.error(error.message)
     })
 }
@@ -42,13 +42,13 @@ function deleteFestival(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème suppression d'une festival"})
+        res.status(500).send({msg: "Problème suppression d'un festival"})
         console.error(error.message)
     })
 }
 function createFestival(req, res) {
 
-    promise = festival_model.createFestival(req.body.nom)
+    promise = festival_model.createFestival(req.body.nom,req.body.annee,req.body.nbJours)
     promise.then(
         (values) => {
             res.status(200).send(values)
@@ -57,13 +57,13 @@ function createFestival(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème création d'une festival"})
+        res.status(500).send({msg: "Problème création d'un festival"})
         console.error(error.message)
     })
 }
 function updateFestivalById(req, res) {
 
-    promise = festival_model.updateFestival(req.body.nom,req.body.id)
+    promise = festival_model.updateFestival(req.body.nom,req.body.annee,req.body.nbJours,req.body.id)
     promise.then(
         (values) => {
             res.status(200).send(values)
@@ -72,7 +72,23 @@ function updateFestivalById(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème mise à jour d'une festival"})
+        res.status(500).send({msg: "Problème mise à jour d'un festival"})
+        console.error(error.message)
+    })
+}
+
+function closeFestival(req, res) {
+
+    promise = festival_model.closeFestival(req.body.id)
+    promise.then(
+        (values) => {
+            res.status(200).send(values)
+        },
+        (error) => {
+            res.status(400).send({msg: error.message})
+        }
+    ).catch((error) => {
+        res.status(500).send({msg: "Problème cloture d'un festival"})
         console.error(error.message)
     })
 }
@@ -83,4 +99,5 @@ module.exports = {
     deleteFestival,
     createFestival,
     updateFestivalById,
+    closeFestival,
 }
