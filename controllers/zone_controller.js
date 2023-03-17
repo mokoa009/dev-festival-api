@@ -48,7 +48,7 @@ function deleteZone(req, res) {
 }
 function createZone(req, res) {
 
-    promise = zone_model.createZone(req.body.nom)
+    promise = zone_model.createZone(req.body.nom,req.body.nbBene)
     promise.then(
         (values) => {
             res.status(200).send(values)
@@ -63,7 +63,7 @@ function createZone(req, res) {
 }
 function updateZoneById(req, res) {
 
-    promise = zone_model.updateZone(req.body.nom,req.body.id)
+    promise = zone_model.updateZone(req.body.nom,req.body.nbBene,req.body.id)
     promise.then(
         (values) => {
             res.status(200).send(values)

@@ -49,9 +49,9 @@ async function deleteZone(id){
     });
 }
 
-async function createZone(nom){
+async function createZone(nom, nbBene){
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO Zone VALUES (NULL, ${db.escape(nom)})`
+        const sql = `INSERT INTO Zone VALUES (NULL, ${db.escape(nom)}, ${db.escape(nbBene)})`
         try { 
             db.query(sql, [], (err, result,connection) => {
                 if (err){ 
@@ -66,9 +66,9 @@ async function createZone(nom){
     });
 }
 
-async function updateZone(nom,id){
+async function updateZone(nom,nbBene,id){
     return new Promise((resolve, reject) => {
-        const sql = `UPDATE Zone SET nom = ${db.escape(nom)} WHERE idZone = ${db.escape(id)}`
+        const sql = `UPDATE Zone SET nom = ${db.escape(nom)} AND nbBenevoles = ${db.escape(nbBene)} WHERE idZone = ${db.escape(id)}`
         try { 
             db.query(sql, [], (err, result,connection) => {
                 if (err){ 
