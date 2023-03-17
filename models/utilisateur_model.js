@@ -6,43 +6,49 @@ require("dotenv").config()
 async function getUtilisateurs(){
     return new Promise((resolve, reject) => {
         const sql = "SELECT * FROM Utilisateur"
-        db.query(sql, [], (err, result) => {
-            if (err){
-                console.error(err.message);
-                reject(err)
-            }
-            else{
-                resolve(result);
-            }
-        });
+        try { 
+            db.query(sql, [], (err,result,connexion) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
     });
 }
 async function getUtilisateur(id){
     return new Promise((resolve, reject) => {
         const sql = `SELECT * FROM Utilisateur WHERE idUtilisateur = ${db.escape(id)}`
-        db.query(sql, [], (err, result) => {
-            if (err){
-                console.error(err.message);
-                reject(err)
-            }
-            else{
-                resolve(result);
-            }
-        });
+        try { 
+            db.query(sql, [], (err, result,connection) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
     });
 }
 async function deleteUtilisateur(id){
     return new Promise((resolve, reject) => {
         const sql = `DELETE FROM Utilisateur WHERE idUtilisateur = ${db.escape(id)}`
-        db.query(sql, [], (err, result) => {
-            if (err){
-                console.error(err.message);
-                reject(err)
-            }
-            else{
-                resolve(result);
-            }
-        })
+        try { 
+            db.query(sql, [], (err, result,connection) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
     })
 }
 
@@ -57,15 +63,17 @@ async function createUtilisateur(nom,prenom,email,mdp,isAdmin){
                     reject(err)
                 }
                 const sql = `INSERT INTO Utilisateur VALUES (NULL, ${db.escape(nom)},${db.escape(prenom)},${db.escape(email)},${db.escape(hash)},${db.escape(isAdmin)})`
-                db.query(sql, [], (err, result) => {
-                    if (err){
-                        console.error(err.message);
-                        reject(err)
-                    }
-                    else{
-                        resolve(result);
-                    }
-                })
+                try { 
+                    db.query(sql, [], (err, result,connection) => {
+                        if (err){ 
+                            reject(err) 
+                        } else{ 
+                            resolve(result)
+                        } 
+                    }) 
+                } catch (error) { 
+                    reject(error) 
+                }
             })
         })
     })
@@ -76,15 +84,17 @@ async function updateUtilisateur(nom,prenom,email,mdp,isAdmin,id){
         let sql = ""
         if(mdp == undefined || mdp == null){
             sql = `UPDATE Utilisateur SET nom = ${db.escape(nom)} , prenom = ${db.escape(prenom)}, email = ${db.escape(email)}, isAdmin = ${db.escape(isAdmin)} WHERE idUtilisateur= ${db.escape(id)}`
-            db.query(sql, [], (err, result) => {
-                if (err){
-                    console.error(err.message);
-                    reject(err)
-                }
-                else{
-                    resolve(result);
-                }
-            });
+            try { 
+                db.query(sql, [], (err, result,connection) => {
+                    if (err){ 
+                        reject(err) 
+                    } else{ 
+                        resolve(result)
+                    } 
+                }) 
+            } catch (error) { 
+                reject(error) 
+            }
         }else{
             bcrypt.genSalt(10, function (err , salt) {
                 if(err) reject(err)
@@ -94,15 +104,17 @@ async function updateUtilisateur(nom,prenom,email,mdp,isAdmin,id){
                         reject(err);
                     }
                     sql = `UPDATE Utilisateur SET nom = ${db.escape(nom)} , prenom = ${db.escape(prenom)}, email = ${db.escape(email)}, mdp = ${db.escape(hash)}, isAdmin = ${db.escape(isAdmin)} WHERE idUtilisateur= ${db.escape(id)}`
-                    db.query(sql, [], (err, result) => {
-                        if (err){
-                            console.error(err.message);
-                            reject(err)
-                        }
-                        else{
-                            resolve(result);
-                        }
-                    });
+                    try { 
+                        db.query(sql, [], (err, result,connection) => {
+                            if (err){ 
+                                reject(err) 
+                            } else{ 
+                                resolve(result)
+                            } 
+                        }) 
+                    } catch (error) { 
+                        reject(error) 
+                    }
                 })
             })
         }
