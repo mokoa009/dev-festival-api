@@ -5,7 +5,7 @@ module.exports = (app) =>{
     const jourRouter = require('./jour_route');
     const creneauRouter = require('./creneau_route');
     const affectationBenevoleCreneauRouter = require('./attributionZone_route');
-    const affectationCreneauJourRouter = require('./attributionZone_route');
+    const affectationCreneauJourRouter = require('./attributionCJ_route.js');
 
     app.use('/zones', zoneRouter);
     app.use('/utilisateurs', utilisateurRouter);
