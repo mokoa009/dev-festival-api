@@ -13,8 +13,8 @@ function beauRendu (item){
         },
         creneau : {
             id: item.idCreneau,
-            dateDebut :item.dateDebut, 
-            dateFin : item.dateFin
+            heureDebut : item.heureDebut, 
+            heureFin : item.heureFin
         }
     }
 }
@@ -31,7 +31,7 @@ function selectAttributionsZone(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème sélection des attributionx"})
+        res.status(500).send({msg: "Problème sélection des attributions Zone"})
         console.error(error.message)
     })
 }
@@ -51,7 +51,7 @@ function selectAttributionZoneById(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème sélection du attribution"})
+        res.status(500).send({msg: "Problème sélection d'une attribution Zone par ids"})
         console.error(error.message)
     })
 }
@@ -69,7 +69,7 @@ function selectAttributionsByBenevole(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème sélection du attribution"})
+        res.status(500).send({msg: "Problème sélection d'une attribution Zone par Benevole"})
         console.error(error.message)
     })
 }
@@ -87,7 +87,7 @@ function selectAttributionsByZone(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème sélection du attribution"})
+        res.status(500).send({msg: "Problème sélection d'une attribution Zone par Zone"})
         console.error(error.message)
     })
 }
@@ -104,7 +104,7 @@ function selectAttributionsByCreneau(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème sélection du attribution"})
+        res.status(500).send({msg: "Problème sélection d'une attribution Zone par Creneau"})
         console.error(error.message)
     })
 }
@@ -125,7 +125,7 @@ function selectAttributionsByAll(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème sélection du attribution"})
+        res.status(500).send({msg: "Problème sélection d'une attribution Zone par tout"})
         console.error(error.message)
     })
 }
@@ -144,7 +144,7 @@ function selectCreneauNonSelectByZoneAndBenevole(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème sélection du attribution"})
+        res.status(500).send({msg: "Problème sélection d'une attribution Zone par Benevole et Zone"})
         console.error(error.message)
     })
 }
@@ -160,7 +160,7 @@ function deleteAttributionZone(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème suppression du attribution"})
+        res.status(500).send({msg: "Problème suppression d'une attribution Zone"})
         console.error(error.message)
     })
 }
@@ -176,7 +176,7 @@ function createAttributionZone(req, res) {
             res.status(400).send({msg: error.message})
         }
     ).catch((error) => {
-        res.status(500).send({msg: "Problème création du attribution"})
+        res.status(500).send({msg: "Problème création d'une attribution Zone"})
         console.error(error.message)
     })
 }
