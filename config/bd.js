@@ -13,12 +13,4 @@ const connection = mysql.createPool({
    database: params.pathname.slice(1)
 });
 
-connection.connect(function(err) {
-    if (err) {
-        console.log('Connexion error ' + err + ' ' + err.code);
-        return;
-    }
-    res.end('connexion  ok!');
-});
-
 module.exports = connection
