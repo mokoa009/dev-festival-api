@@ -17,5 +17,6 @@ module.exports = (app) =>{
     app.use('/affectationBC', affectationBenevoleCreneauRouter);
     app.use('/affectationCJ', affectationCreneauJourRouter);
     app.use('/affectationJF', affectationJourFestivalRouter);
+    app.use('/affectationFZ', affectationFestivalZoneRouter)
     
 }
