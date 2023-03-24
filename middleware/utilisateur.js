@@ -23,6 +23,8 @@ module.exports = {
   //verification utilisateur connecté
   verifConnecte: (req, res, next) => {
     try {
+      console.log("req.headers.autorization : " + req.headers.autorization)
+      console.log("req.headers : " + req.headers)
       const token = req.headers.autorization.split(' ')[1]
       if (!token && token[0] == 'Bearer') {
         return res.status(400).send({msg: 'Token invalide !'})
@@ -38,7 +40,7 @@ module.exports = {
   verifMemeId: (req, res, next) => {
     try {
       console.log("req.headers.autorization : " + req.headers.autorization)
-      const token = req.headers.autorization.split(' ')[1]
+      const token = req.headers.authorization.split(' ')[1]
 
       if (!token && token[0] == 'Bearer') {
         return res.status(400).send({msg: 'Token invalide !'})
