@@ -2,7 +2,7 @@ let mysql = require('mysql2');
 require("dotenv").config()
 const url = require('url');
 
-const dbUrl = process.env.DATABASE_URL; // dsn l
+const dbUrl = process.env.DATABASE_URL; // dsn le
 const params = url.parse(dbUrl);
 
 const connection = mysql.createPool({
