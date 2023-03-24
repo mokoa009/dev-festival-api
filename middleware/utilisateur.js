@@ -68,7 +68,7 @@ module.exports = {
   // verification utilisateur admin 
   verifAdmin: (req, res, next) => {
     try {
-      const token = req.headers.autorization.split(' ')[1]
+      const token = req.headers.authorization.split(' ')[1]
       if (!token && token[0] == 'Bearer') {
         return res.status(400).send({msg: 'Token invalide !'})
       }
