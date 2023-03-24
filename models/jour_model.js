@@ -4,7 +4,7 @@ async function getJours(){
     return new Promise((resolve, reject) => {
         const sql = "SELECT * FROM JourFestival"
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -20,7 +20,7 @@ async function getJour(id){
     return new Promise((resolve, reject) => {
         const sql = `SELECT * FROM JourFestival WHERE idJour = ${db.escape(id)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -36,7 +36,7 @@ async function deleteJour(id){
     return new Promise((resolve, reject) => {
         const sql = `DELETE FROM JourFestival WHERE idJour = ${db.escape(id)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -53,7 +53,7 @@ async function createJour(nom,ouverture,fermerture){
     return new Promise((resolve, reject) => {
         const sql = `INSERT INTO JourFestival VALUES (NULL, ${db.escape(nom)}, ${db.escape(ouverture)}, ${db.escape(fermerture)})`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -70,7 +70,7 @@ async function updateJour(nom,ouverture,fermerture,id){
     return new Promise((resolve, reject) => {
         const sql = `UPDATE JourFestival SET nom = ${db.escape(nom)} AND ouverture = ${db.escape(ouverture)} AND fermerture = ${db.escape(fermerture)} WHERE idJour = ${db.escape(id)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 

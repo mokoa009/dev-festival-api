@@ -7,7 +7,7 @@ async function getUtilisateurs(){
     return new Promise((resolve, reject) => {
         const sql = "SELECT * FROM Utilisateur"
         try { 
-            db.query(sql, [], (err,result,connexion) => {
+            db.query(sql, [], (err,result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -23,7 +23,7 @@ async function getUtilisateur(id){
     return new Promise((resolve, reject) => {
         const sql = `SELECT * FROM Utilisateur WHERE idUtilisateur = ${db.escape(id)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -37,12 +37,14 @@ async function getUtilisateur(id){
 }
 async function deleteUtilisateur(id){
     return new Promise((resolve, reject) => {
+        console.log("id : "+id)
         const sql = `DELETE FROM Utilisateur WHERE idUtilisateur = ${db.escape(id)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
+                    console.log("Utilisateur supprimé")
                     resolve(result)
                 } 
             }) 
@@ -64,7 +66,7 @@ async function createUtilisateur(nom,prenom,email,mdp,isAdmin){
                 }
                 const sql = `INSERT INTO Utilisateur VALUES (NULL, ${db.escape(nom)},${db.escape(prenom)},${db.escape(email)},${db.escape(hash)},${db.escape(isAdmin)})`
                 try { 
-                    db.query(sql, [], (err, result,connection) => {
+                    db.query(sql, [], (err, result) => {
                         if (err){ 
                             reject(err) 
                         } else{ 
@@ -105,7 +107,7 @@ async function updateUtilisateur(nom,prenom,email,mdp,isAdmin,id){
                     }
                     sql = `UPDATE Utilisateur SET nom = ${db.escape(nom)} , prenom = ${db.escape(prenom)}, email = ${db.escape(email)}, mdp = ${db.escape(hash)}, isAdmin = ${db.escape(isAdmin)} WHERE idUtilisateur= ${db.escape(id)}`
                     try { 
-                        db.query(sql, [], (err, result,connection) => {
+                        db.query(sql, [], (err, result) => {
                             if (err){ 
                                 reject(err) 
                             } else{ 

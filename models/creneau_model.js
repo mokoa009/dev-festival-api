@@ -4,7 +4,7 @@ async function getCreneaux(){
     return new Promise((resolve, reject) => {
         const sql = "SELECT * FROM Creneau"
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -20,7 +20,7 @@ async function getCreneau(id){
     return new Promise((resolve, reject) => {
         const sql = `SELECT * FROM Creneau WHERE idCreneau = ${db.escape(id)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -36,7 +36,7 @@ async function deleteCreneau(id){
     return new Promise((resolve, reject) => {
         const sql = `DELETE FROM Creneau WHERE idCreneau = ${db.escape(id)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -53,7 +53,7 @@ async function createCreneau(heureDebut, heureFin){
     return new Promise((resolve, reject) => {
         const sql = `INSERT INTO Creneau VALUES (NULL, ${db.escape(heureDebut)}, ${db.escape(heureFin)})`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -70,7 +70,7 @@ async function updateCreneau(heureDebut,heureFin,id){
     return new Promise((resolve, reject) => {
         const sql = `UPDATE Creneau SET heureDebut = ${db.escape(heureDebut)} AND heureFin = ${db.escape(heureFin)} WHERE idCreneau = ${db.escape(id)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 

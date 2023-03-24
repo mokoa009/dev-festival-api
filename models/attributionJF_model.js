@@ -6,7 +6,7 @@ async function getAttributionsFZ(){
                     FROM AffectationJourFestival as A, JourFestival as J, Festival as F \
                     where A.idFestival = F.idFestival AND A.idJour = J.idJour"
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -26,7 +26,7 @@ async function selectAttributionsByFestival(idFestival){
                     where A.idFestival = F.idFestival AND A.idJour = J.idJour\
                     AND F.idFestival = ${db.escape(idFestival)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -45,7 +45,7 @@ async function selectAttributionsByJour(idJour){
                     where A.idFestival = F.idFestival AND A.idJour = J.idJour\
                     AND J.idJour = ${db.escape(idJour)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -65,7 +65,7 @@ async function getAttributionsByAll(idJour,idFestival){
                     where A.idFestival = F.idFestival AND A.idJour = J.idJour\
                     AND F.idFestival = ${db.escape(idFestival)} AND J.idJour = ${db.escape(idJour)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -83,7 +83,7 @@ async function deleteAttributionFZ(idJour,idFestival){
     return new Promise((resolve, reject) => {
         const sql = `DELETE FROM AffectationJourFestival WHERE idFestival = ${db.escape(idFestival)} AND idJour = ${db.escape(idJour)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -100,7 +100,7 @@ async function createAttributionFZ(idJour,idFestival){
     return new Promise((resolve, reject) => {
         const sql = `INSERT INTO AffectationJourFestival VALUES (${db.escape(idFestival)},${db.escape(idJour)})`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 

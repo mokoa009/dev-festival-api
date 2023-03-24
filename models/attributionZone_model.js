@@ -6,7 +6,7 @@ async function getAttributionsZone(){
                     FROM AffectationBenevoleCreneau as A, Creneau as C, Utilisateur as U, Zone as Z \
                     where A.idZone = Z.idZone AND A.idUtilisateur = U.idUtilisateur AND A.idCreneau = C.idCreneau"
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -25,7 +25,7 @@ async function getAttributionZone(idZone,idUtilisateur,idCreneau){
         where A.idZone = Z.idZone AND A.idUtilisateur = U.idUtilisateur AND A.idCreneau = C.idCreneau\
         AND Z.idZone = ${db.escape(idZone)} AND U.idUtilisateur = ${db.escape(idUtilisateur)} AND C.idCreneau = ${db.escape(idCreneau)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -44,7 +44,7 @@ async function getAttributionZoneByZone(idZone){
         where A.idZone = Z.idZone AND A.idUtilisateur = U.idUtilisateur AND A.idCreneau = C.idCreneau\
         AND Z.idZone = ${db.escape(idZone)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -63,7 +63,7 @@ async function getAttributionZoneByCreneau(idCreneau){
         where A.idZone = Z.idZone AND A.idUtilisateur = U.idUtilisateur AND A.idCreneau = C.idCreneau\
         AND C.idCreneau = ${db.escape(idCreneau)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -82,7 +82,7 @@ async function getAttributionZoneByBenevole(idUtilisateur){
         where A.idZone = Z.idZone AND A.idUtilisateur = U.idUtilisateur AND A.idCreneau = C.idCreneau\
         AND U.idUtilisateur = ${db.escape(idUtilisateur)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -101,7 +101,7 @@ async function getAttributionZoneByAll(idCreneau,idUtilisateur,idZone){
         where A.idZone = Z.idZone AND A.idUtilisateur = U.idUtilisateur AND A.idCreneau = C.idCreneau\
         AND U.idUtilisateur = ${db.escape(idUtilisateur)} AND C.idCreneau = ${db.escape(idCreneau)} AND Z.idZone = ${db.escape(idZone)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -122,7 +122,7 @@ async function getCreneauNonSelectByZoneAndBenevole(idUtilisateur,idZone){
         where A.idZone = Z.idZone AND A.idUtilisateur = U.idUtilisateur AND A.idCreneau = C.idCreneau\
         AND U.idUtilisateur = ${db.escape(idUtilisateur)} AND Z.idZone = ${db.escape(idZone)})`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -141,7 +141,7 @@ async function deleteAttributionZone(idZone,idUtilisateur,idCreneau){
     return new Promise((resolve, reject) => {
         const sql = `DELETE FROM AffectationBenevoleCreneau WHERE idZone = ${db.escape(idZone)} AND idUtilisateur = ${db.escape(idUtilisateur)} AND idCreneau = ${db.escape(idCreneau)}`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
@@ -157,7 +157,7 @@ async function createAttributionZone(idZone,idUtilisateur,idCreneau){
     return new Promise((resolve, reject) => {
         const sql = `INSERT INTO AffectationBenevoleCreneau VALUES (${db.escape(idZone)},${db.escape(idUtilisateur)},${db.escape(idCreneau)})`
         try { 
-            db.query(sql, [], (err, result,connection) => {
+            db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 

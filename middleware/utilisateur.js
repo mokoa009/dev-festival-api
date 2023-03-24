@@ -48,7 +48,7 @@ module.exports = {
       }
       const decoded = jwt.verify(token,process.env.SECRET_KEY)
       req.token = decoded
-
+      console.log("req.token.idUtilisateur : " + req.token)
       //configuration idSelectionne en fonction d'un GET ou POST
       let idSelectionne = 0
       if(req.params.id == null){
