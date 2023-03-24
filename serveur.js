@@ -24,5 +24,5 @@ routes(app) //envoi de l'app
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
-    console.log(`L'application tourne sur le port ${ PORT }`);
+    console.log(`L'application dev mob tourne sur le port ${ PORT }`);
 })
