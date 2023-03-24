@@ -23,9 +23,7 @@ module.exports = {
   //verification utilisateur connecté
   verifConnecte: (req, res, next) => {
     try {
-      console.log("req.headers.autorization : " + req.headers.autorization)
-      console.log("req.headers : " + req.headers)
-      const token = req.headers.autorization.split(' ')[1]
+      const token = req.headers.authorization.split(' ')[1]
       if (!token && token[0] == 'Bearer') {
         return res.status(400).send({msg: 'Token invalide !'})
       }
@@ -39,8 +37,6 @@ module.exports = {
   //verification idUtilisateur connecté = idUtilisateur de la requête
   verifMemeId: (req, res, next) => {
     try {
-      console.log("req.headers.authorization : " + req.headers.authorization)
-      console.log("req.headers.Authorization : " + req.headers.Authorization)
       const token = req.headers.authorization.split(' ')[1]
 
       if (!token && token[0] == 'Bearer') {
@@ -48,7 +44,6 @@ module.exports = {
       }
       const decoded = jwt.verify(token,process.env.SECRET_KEY)
       req.token = decoded
-      console.log("req.token.idUtilisateur : " + req.token)
       //configuration idSelectionne en fonction d'un GET ou POST
       let idSelectionne = 0
       if(req.params.id == null){
