@@ -39,7 +39,8 @@ module.exports = {
   //verification idUtilisateur connecté = idUtilisateur de la requête
   verifMemeId: (req, res, next) => {
     try {
-      console.log("req.headers.autorization : " + req.headers.autorization)
+      console.log("req.headers.authorization : " + req.headers.authorization)
+      console.log("req.headers.Authorization : " + req.headers.Authorization)
       const token = req.headers.authorization.split(' ')[1]
 
       if (!token && token[0] == 'Bearer') {
