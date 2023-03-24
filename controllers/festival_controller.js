@@ -9,6 +9,7 @@ function selectFestivals(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection des festivals"})
@@ -25,6 +26,7 @@ function selectFestivalById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'un festival"})
@@ -40,6 +42,7 @@ function deleteFestival(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème suppression d'un festival"})
@@ -55,6 +58,7 @@ function createFestival(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème création d'un festival"})
@@ -70,6 +74,7 @@ function updateFestivalById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème mise à jour d'un festival"})
@@ -86,6 +91,7 @@ function closeFestival(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème cloture d'un festival"})

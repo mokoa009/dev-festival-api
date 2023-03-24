@@ -26,6 +26,7 @@ function selectAttributionsJF(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection des attributions JF"})
@@ -44,6 +45,7 @@ function selectAttributionsByFestival(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione JF par Festival"})
@@ -61,6 +63,7 @@ function selectAttributionsByJour(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione JF par Jour"})
@@ -81,6 +84,7 @@ function selectAttributionsByAll(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione JF par tout"})
@@ -100,6 +104,7 @@ function deleteAttributionJF(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème suppression d'une attributione JF"})
@@ -119,6 +124,7 @@ function createAttributionJF(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème création d'une attributione JF"})

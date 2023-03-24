@@ -9,6 +9,7 @@ function selectJours(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection des jours"})
@@ -25,6 +26,7 @@ function selectJourById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une jour"})
@@ -40,6 +42,7 @@ function deleteJour(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème suppression d'une jour"})
@@ -55,6 +58,7 @@ function createJour(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème création d'une jour"})
@@ -70,6 +74,7 @@ function updateJourById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème mise à jour d'une jour"})

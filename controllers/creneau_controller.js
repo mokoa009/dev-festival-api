@@ -9,6 +9,7 @@ function selectCreneaux(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection des creneaux"})
@@ -25,6 +26,7 @@ function selectCreneauById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'un creneau"})
@@ -40,6 +42,7 @@ function deleteCreneau(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème suppression d'un creneau"})
@@ -55,6 +58,7 @@ function createCreneau(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème création d'un creneau"})
@@ -70,6 +74,7 @@ function updateCreneauById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème mise à jour d'un creneau"})

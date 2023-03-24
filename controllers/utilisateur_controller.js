@@ -9,6 +9,7 @@ function selectUtilisateurs(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: error.message})
@@ -24,6 +25,7 @@ function selectUtilisateurById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: error.message})
@@ -39,6 +41,7 @@ function deleteUtilisateur(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: error.message})
@@ -54,6 +57,7 @@ function createUtilisateur(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: error.message})
@@ -69,6 +73,7 @@ function updateUtilisateurById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: error.message})
@@ -84,6 +89,7 @@ function connexionUtilisateur(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: error.message})

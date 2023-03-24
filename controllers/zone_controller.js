@@ -9,6 +9,7 @@ function selectZones(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection des zones"})
@@ -25,6 +26,7 @@ function selectZoneById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une zone"})
@@ -40,6 +42,7 @@ function deleteZone(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème suppression d'une zone"})
@@ -55,6 +58,7 @@ function createZone(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème création d'une zone"})
@@ -70,6 +74,7 @@ function updateZoneById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème mise à jour d'une zone"})

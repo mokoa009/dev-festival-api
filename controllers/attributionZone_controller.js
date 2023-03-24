@@ -29,6 +29,7 @@ function selectAttributionsZone(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection des attributions Zone"})
@@ -49,6 +50,7 @@ function selectAttributionZoneById(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attribution Zone par ids"})
@@ -67,6 +69,7 @@ function selectAttributionsByBenevole(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attribution Zone par Benevole"})
@@ -85,6 +88,7 @@ function selectAttributionsByZone(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attribution Zone par Zone"})
@@ -102,6 +106,7 @@ function selectAttributionsByCreneau(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attribution Zone par Creneau"})
@@ -123,6 +128,7 @@ function selectAttributionsByAll(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attribution Zone par tout"})
@@ -142,6 +148,7 @@ function selectCreneauNonSelectByZoneAndBenevole(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attribution Zone par Benevole et Zone"})
@@ -158,6 +165,7 @@ function deleteAttributionZone(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème suppression d'une attribution Zone"})
@@ -174,6 +182,7 @@ function createAttributionZone(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème création d'une attribution Zone"})

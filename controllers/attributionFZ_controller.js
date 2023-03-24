@@ -24,6 +24,7 @@ function selectAttributionsFZ(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection des attributions FZ"})
@@ -42,6 +43,7 @@ function selectAttributionsByFestival(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione FZ par Festival"})
@@ -59,6 +61,7 @@ function selectAttributionsByZone(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione FZ par Zone"})
@@ -79,6 +82,7 @@ function selectAttributionsByAll(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione FZ par tout"})
@@ -98,6 +102,7 @@ function deleteAttributionFZ(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème suppression d'une attributione FZ"})
@@ -117,6 +122,7 @@ function createAttributionFZ(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème création d'une attributione FZ"})

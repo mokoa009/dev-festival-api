@@ -26,6 +26,7 @@ function selectAttributionsCJ(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection des attributions CJ"})
@@ -44,6 +45,7 @@ function selectAttributionsByJour(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione CJ par Jour"})
@@ -61,6 +63,7 @@ function selectAttributionsByCreneau(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione CJ par Creneau"})
@@ -81,6 +84,7 @@ function selectAttributionsByAll(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème sélection d'une attributione CJ par tout"})
@@ -100,6 +104,7 @@ function deleteAttributionCJ(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème suppression d'une attributione CJ"})
@@ -119,6 +124,7 @@ function createAttributionCJ(req, res) {
         },
         (error) => {
             res.status(400).send({msg: error.message})
+            console.error(error.message)
         }
     ).catch((error) => {
         res.status(500).send({msg: "Problème création d'une attributione CJ"})
