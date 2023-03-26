@@ -35,7 +35,7 @@ function selectCreneauById(req, res) {
 }
 function selectIdByHeure(req, res) {
 
-    promise = creneau_model.getCreneau(req.body.id)
+    promise = creneau_model.getCreneau(req.body.heureDebut,req.body.heureFin)
     promise.then(
         (values) => {
             res.status(200).send(values)
