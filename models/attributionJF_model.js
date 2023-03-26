@@ -30,7 +30,6 @@ async function selectAttributionsByFestival(idFestival){
                 if (err){ 
                     reject(err) 
                 } else{ 
-                    console.log("result",result)
                     resolve(result)
                 } 
             }) 

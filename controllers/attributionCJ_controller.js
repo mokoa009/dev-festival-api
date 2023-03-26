@@ -10,8 +10,8 @@ function beauRendu (item){
         },
         creneau : {
             id: item.idCreneau,
-            dateDebut :item.dateDebut, 
-            dateFin : item.dateFin
+            heureDebut :item.heureDebut, 
+            heureFin : item.heureFin
         }
     }
 }
