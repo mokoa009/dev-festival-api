@@ -116,9 +116,6 @@ function createAttributionCJ(req, res) {
 
     const idCreneau = req.body.idCreneau
     const idJour = req.body.idJour
-    console.log("idj et c ")
-    console.log(idJour)
-    console.log(idCreneau)
 
     promise = attribution_model.createAttributionCJ(idCreneau,idJour)
     promise.then(
