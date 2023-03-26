@@ -21,7 +21,7 @@ async function getAttributionsFZ(){
 
 async function selectAttributionsByFestival(idFestival){
     return new Promise((resolve, reject) => {
-        const sql = `SELECT F.idFestival, F.nom as nomFestival, F.cloture, Z.idZone, Z.nom as nomZone\
+        const sql = `SELECT F.idFestival, F.nom as nomFestival, F.cloture, Z.idZone, Z.nom as nomZone, Z.nbBenevoles\
                     FROM AffectationFestivalZones as A, Zone as Z, Festival as F \
                     where A.idFestival = F.idFestival AND A.idZone = Z.idZone\
                     AND F.idFestival = ${db.escape(idFestival)}`

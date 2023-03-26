@@ -4,7 +4,8 @@ function beauRendu (item){
     return {
         zone : {
             id : item.idZone,
-            nom : item.nomZone
+            nom : item.nomZone,
+            nbBenevoles : item.nbBenevoles
         },
         festival : {
             id : item.idFestival,
