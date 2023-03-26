@@ -33,6 +33,22 @@ function selectCreneauById(req, res) {
         console.error(error.message)
     })
 }
+function selectIdByHeure(req, res) {
+
+    promise = creneau_model.getCreneau(req.body.id)
+    promise.then(
+        (values) => {
+            res.status(200).send(values)
+        },
+        (error) => {
+            res.status(400).send({msg: error.message})
+            console.error(error.message)
+        }
+    ).catch((error) => {
+        res.status(500).send({msg: "Problème sélection ID d'un creneau"})
+        console.error(error.message)
+    })
+}
 function deleteCreneau(req, res) {
 
     promise = creneau_model.deleteCreneau(req.body.id)
@@ -88,4 +104,5 @@ module.exports = {
     deleteCreneau,
     createCreneau,
     updateCreneauById,
+    selectIdByHeure
 }

@@ -32,6 +32,22 @@ async function getCreneau(id){
         }
     });
 }
+async function getIdCreneauByHeure(heureDebut, heureFin){
+    return new Promise((resolve, reject) => {
+        const sql = `SELECT idCreneau FROM Creneau WHERE heureDebut = ${db.escape(heureDebut)} AND heureFin = ${db.escape(heureFin)}`
+        try { 
+            db.query(sql, [], (err, result) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
+    });
+}
 async function deleteCreneau(id){
     return new Promise((resolve, reject) => {
         const sql = `DELETE FROM Creneau WHERE idCreneau = ${db.escape(id)}`
@@ -89,4 +105,5 @@ module.exports ={
     deleteCreneau,
     createCreneau,
     updateCreneau,
+    getIdCreneauByHeure
 }
