@@ -20,6 +20,7 @@ async function getAttributionsFZ(){
 }
 
 async function selectAttributionsByFestival(idFestival){
+    console.log("idFestival",idFestival)
     return new Promise((resolve, reject) => {
         const sql = `SELECT F.idFestival, F.nom as nomFestival, F.cloture, J.idJour, J.nom as nomJour, J.ouverture, J.fermeture\
                     FROM AffectationJourFestival as A, JourFestival as J, Festival as F \
@@ -30,6 +31,7 @@ async function selectAttributionsByFestival(idFestival){
                 if (err){ 
                     reject(err) 
                 } else{ 
+                    console.log("result",result)
                     resolve(result)
                 } 
             }) 
