@@ -4,7 +4,7 @@ function beauRendu (item){
     return {
         jour: {
             id : item.idJour,
-            nom : item.nom,
+            nom : item.nomJour,
             ouverture : item.ouverture,
             fermeture : item.fermeture
         },
