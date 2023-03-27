@@ -56,6 +56,25 @@ async function getAttributionZoneByZone(idZone){
         }
     });
 }
+async function getAttributionsByZoneAndCreneau(idZone,idCreneau){
+    return new Promise((resolve, reject) => {
+        const sql = `SELECT A.idUtilisateur, U.nom as nomUtilisateur, U.prenom, U.email, Z.nom as nomZone, C.heureDebut, C.heureFin \
+        FROM AffectationBenevoleCreneau as A, Creneau as C, Utilisateur as U, Zone as Z \
+        where A.idZone = Z.idZone AND A.idUtilisateur = U.idUtilisateur AND A.idCreneau = C.idCreneau\
+        AND Z.idZone = ${db.escape(idZone)} AND C.idCreneau = ${db.escape(idCreneau)}`
+        try { 
+            db.query(sql, [], (err, result) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
+    });
+}
 async function getAttributionZoneByCreneau(idCreneau){
     return new Promise((resolve, reject) => {
         const sql = `SELECT Z.nom as nomZone, U.nom, U.prenom, C.heureDebut, C.heureFin \
@@ -180,4 +199,5 @@ module.exports ={
     getCreneauNonSelectByZoneAndBenevole,
     deleteAttributionZone,
     createAttributionZone,
+    getAttributionsByZoneAndCreneau
 }
