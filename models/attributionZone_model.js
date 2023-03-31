@@ -156,7 +156,7 @@ async function getCreneauNonSelectByZoneAndBenevole(idUtilisateur,idZone){
 
 async function getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone){
     return new Promise((resolve, reject) => {
-        const sql = `SELECT idUtilisateur FROM Utilisateur WHERE idUtilisateur NOT IN (SELECT idUtilisateur FROM AffectationBenevoleCreneau where idCreneau = ${db.escape(idCreneau)} AND idZone = ${db.escape(idZone)});`
+        const sql = `SELECT * FROM Utilisateur WHERE idUtilisateur NOT IN (SELECT idUtilisateur FROM AffectationBenevoleCreneau where idCreneau = ${db.escape(idCreneau)} AND idZone = ${db.escape(idZone)});`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 
