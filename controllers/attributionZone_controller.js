@@ -178,7 +178,7 @@ function selectBenevoleNonSelectByZoneAndCreneau(req, res) {
     const idCreneau = req.params.idCreneau
     const idZone = req.params.idZone
 
-    promise = attribution_model.getCreneauNonSelectByZoneAndBenevole(idCreneau,idZone)
+    promise = attribution_model.getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone)
     promise.then(
         (values) => {
             res.status(200).send(values)
