@@ -51,7 +51,7 @@ async function deleteFestival(id){
 
 async function createFestival(nom,annee, nbJours){
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO Festival VALUES (NULL, ${db.escape(nom)}, ${db.escape(annee)}, ${db.escape(nbJours)}, 0)`
+        const sql = `INSERT INTO Festival VALUES (NULL, ${db.escape(nom)}, ${db.escape(annee)}, ${db.escape(nbJours)}, 0) RETURNING Festival.idFestival`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 

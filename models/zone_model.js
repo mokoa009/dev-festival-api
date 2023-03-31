@@ -51,7 +51,7 @@ async function deleteZone(id){
 
 async function createZone(nom, nbBene){
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO Zone VALUES (NULL, ${db.escape(nom)}, ${db.escape(nbBene)})`
+        const sql = `INSERT INTO Zone VALUES (NULL, ${db.escape(nom)}, ${db.escape(nbBene)}) RETURNING Zone.idZone`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 

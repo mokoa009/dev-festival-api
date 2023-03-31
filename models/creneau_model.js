@@ -67,7 +67,7 @@ async function deleteCreneau(id){
 
 async function createCreneau(heureDebut, heureFin){
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO Creneau VALUES (NULL, ${db.escape(heureDebut)}, ${db.escape(heureFin)})`
+        const sql = `INSERT INTO Creneau VALUES (NULL, ${db.escape(heureDebut)}, ${db.escape(heureFin)}) RETURNING Creneau.idCreneau`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 
