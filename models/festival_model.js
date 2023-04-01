@@ -57,7 +57,7 @@ async function createFestival(nom,annee, nbJours){
                 if (err){ 
                     reject(err) 
                 } else{ 
-                    const sql2 = `SELECT LAST_INSERT_ID()`
+                    const sql2 = `SELECT LAST_INSERT_ID() AS idFestival;`
                     try { 
                         db.query(sql2, [], (err2, result2) => {
                             if (err2){ 
