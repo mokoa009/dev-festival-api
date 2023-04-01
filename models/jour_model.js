@@ -51,7 +51,7 @@ async function deleteJour(id){
 
 async function createJour(nom,ouverture,fermerture){
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO JourFestival VALUES (NULL, ${db.escape(nom)}, ${db.escape(ouverture)}, ${db.escape(fermerture)}) RETURNING JourFestival.idJour`
+        const sql = `INSERT INTO JourFestival VALUES (NULL, ${db.escape(nom)}, ${db.escape(ouverture)}, ${db.escape(fermerture)})`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 
