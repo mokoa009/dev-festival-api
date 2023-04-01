@@ -51,14 +51,25 @@ async function deleteFestival(id){
 
 async function createFestival(nom,annee, nbJours){
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO Festival VALUES (NULL, ${db.escape(nom)}, ${db.escape(annee)}, ${db.escape(nbJours)}, 0); SELECT LAST_INSERT_ID();`
+        const sql = `INSERT INTO Festival VALUES (NULL, ${db.escape(nom)}, ${db.escape(annee)}, ${db.escape(nbJours)}, 0)`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 
                     reject(err) 
                 } else{ 
-                    resolve(result)
-                } 
+                    const sql2 = `SELECT LAST_INSERT_ID()`
+                    try { 
+                        db.query(sql2, [], (err2, result2) => {
+                            if (err2){ 
+                                reject(err2) 
+                            } else{ 
+                                resolve(result2)
+                            } 
+                        }) 
+                    } catch (error2) { 
+                        reject(error2) 
+                    }
+                }
             }) 
         } catch (error) { 
             reject(error) 
