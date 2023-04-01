@@ -8,6 +8,8 @@ module.exports = (app) =>{
     const affectationCreneauJourRouter = require('./attributionCJ_route.js');
     const affectationFestivalZoneRouter = require('./attributionFZ_route.js');
     const affectationJourFestivalRouter = require('./attributionJF_route.js');
+    const affectationJourZoneRouter = require('./attributionJZ_route.js');
+
 
     app.use('/zones', zoneRouter);
     app.use('/utilisateurs', utilisateurRouter);
@@ -17,6 +19,8 @@ module.exports = (app) =>{
     app.use('/affectationBC', affectationBenevoleCreneauRouter);
     app.use('/affectationCJ', affectationCreneauJourRouter);
     app.use('/affectationJF', affectationJourFestivalRouter);
-    app.use('/affectationFZ', affectationFestivalZoneRouter)
+    app.use('/affectationFZ', affectationFestivalZoneRouter);
+    app.use('/affectationJZ', affectationJourZoneRouter);
+
     
 }
