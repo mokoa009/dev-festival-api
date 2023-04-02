@@ -41,7 +41,7 @@ async function selectAttributionsByZone(idZone){
 async function selectAttributionsByJour(idJour){
     return new Promise((resolve, reject) => {
         const sql = `SELECT Z.idZone, Z.nom as nomZone, Z.nbBenevoles, J.idJour, J.nom as nomJour, J.ouverture, J.fermeture\
-                    FROM AffectationJourFestival as A, JourFestival as J, Zone as Z \
+                    FROM AffectationJourZone as A, JourFestival as J, Zone as Z \
                     where A.idZone = Z.idZone AND A.idJour = J.idJour\
                     AND J.idJour = ${db.escape(idJour)}`
         try { 
