@@ -177,8 +177,9 @@ function selectBenevoleNonSelectByZoneAndCreneau(req, res) {
 
     const idCreneau = req.params.idCreneau
     const idZone = req.params.idZone
+    const idJour = req.params.idJour
 
-    promise = attribution_model.getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone)
+    promise = attribution_model.getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone,idJour)
     promise.then(
         (values) => {
             res.status(200).send(values)
@@ -195,7 +196,7 @@ function selectBenevoleNonSelectByZoneAndCreneau(req, res) {
 
 function deleteAttributionZone(req, res) {
 
-    promise = attribution_model.deleteAttributionZone(req.body.idZone,req.body.idUtilisateur,req.body.idCreneau)
+    promise = attribution_model.deleteAttributionZone(req.body.idZone,req.body.idUtilisateur,req.body.idCreneau,req.body.idJour)
     promise.then(
         (values) => {
             res.status(200).send(values)
@@ -212,7 +213,7 @@ function deleteAttributionZone(req, res) {
 
 function createAttributionZone(req, res) {
 
-    promise = attribution_model.createAttributionZone(req.body.idZone,req.body.idUtilisateur,req.body.idCreneau)
+    promise = attribution_model.createAttributionZone(req.body.idZone,req.body.idUtilisateur,req.body.idCreneau,req.body.idJour)
     promise.then(
         (values) => {
             res.status(200).send(values)

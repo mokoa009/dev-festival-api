@@ -154,9 +154,9 @@ async function getCreneauNonSelectByZoneAndBenevole(idUtilisateur,idZone){
     });
 }
 
-async function getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone){
+async function getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone,idJour){
     return new Promise((resolve, reject) => {
-        const sql = `SELECT * FROM Utilisateur WHERE idUtilisateur NOT IN (SELECT idUtilisateur FROM AffectationBenevoleCreneau where idCreneau = ${db.escape(idCreneau)} AND idZone = ${db.escape(idZone)});`
+        const sql = `SELECT * FROM Utilisateur WHERE idUtilisateur NOT IN (SELECT idUtilisateur FROM AffectationBenevoleCreneau where idCreneau = ${db.escape(idCreneau)} AND idZone = ${db.escape(idZone)} AND idJour = ${db.escape(idJour)});`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 
@@ -174,9 +174,9 @@ async function getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone){
 
 
 
-async function deleteAttributionZone(idZone,idUtilisateur,idCreneau){
+async function deleteAttributionZone(idZone,idUtilisateur,idCreneau,idJour){
     return new Promise((resolve, reject) => {
-        const sql = `DELETE FROM AffectationBenevoleCreneau WHERE idZone = ${db.escape(idZone)}  AND idUtilisateur = ${db.escape(idUtilisateur)} AND idCreneau = ${db.escape(idCreneau)};`
+        const sql = `DELETE FROM AffectationBenevoleCreneau WHERE idZone = ${db.escape(idZone)}  AND idUtilisateur = ${db.escape(idUtilisateur)} AND idCreneau = ${db.escape(idCreneau)}, AND idJour = ${db.escape(idJour)};`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 
@@ -190,9 +190,9 @@ async function deleteAttributionZone(idZone,idUtilisateur,idCreneau){
         }
     });
 }
-async function createAttributionZone(idZone,idUtilisateur,idCreneau){
+async function createAttributionZone(idZone,idUtilisateur,idCreneau,idJour){
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO AffectationBenevoleCreneau VALUES (${db.escape(idZone)},${db.escape(idUtilisateur)},${db.escape(idCreneau)})`
+        const sql = `INSERT INTO AffectationBenevoleCreneau VALUES (${db.escape(idZone)},${db.escape(idUtilisateur)},${db.escape(idCreneau)},${db.escape(idJour)});`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 
