@@ -9,7 +9,6 @@ function beauRendu (item){
         },
         creneau : {
             id : item.idCreneau,
-            nom : item.nomCreneau,
             heureDebut : item.heureDebut,
             heureFin : item.heureFin
         }
