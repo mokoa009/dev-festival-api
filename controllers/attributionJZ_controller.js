@@ -11,7 +11,7 @@ function beauRendu (item){
         zone : {
             id : item.idZone,
             nom : item.nomZone,
-            nbBenevole : item.nbBenevole
+            nbBenevoles : item.nbBenevoles
         }
     }
 }
