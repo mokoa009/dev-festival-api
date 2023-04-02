@@ -190,9 +190,9 @@ async function deleteAttributionZone(idZone,idUtilisateur,idCreneau,idJour){
         }
     });
 }
-async function createAttributionZone(idZone,idUtilisateur,idCreneau,idJour){
+async function createAttributionZone(idUtilisateur,idZone,idCreneau,idJour){
     return new Promise((resolve, reject) => {
-        const sql = `INSERT INTO AffectationBenevoleCreneau VALUES (${db.escape(idZone)},${db.escape(idUtilisateur)},${db.escape(idCreneau)},${db.escape(idJour)});`
+        const sql = `INSERT INTO AffectationBenevoleCreneau VALUES (${db.escape(idUtilisateur)},${db.escape(idZone)},${db.escape(idCreneau)},${db.escape(idJour)});`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 

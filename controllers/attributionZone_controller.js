@@ -213,7 +213,7 @@ function deleteAttributionZone(req, res) {
 
 function createAttributionZone(req, res) {
 
-    promise = attribution_model.createAttributionZone(req.body.idZone,req.body.idUtilisateur,req.body.idCreneau,req.body.idJour)
+    promise = attribution_model.createAttributionZone(req.body.idUtilisateur,req.body.idZone,req.body.idCreneau,req.body.idJour)
     promise.then(
         (values) => {
             res.status(200).send(values)
