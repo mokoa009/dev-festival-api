@@ -117,8 +117,9 @@ function selectAttributionsByZoneAndCreneau(req, res) {
 
     const idZone = req.params.idZone
     const idCreneau = req.params.idCreneau
+    const idJour = req.params.idJour
 
-    promise = attribution_model.getAttributionsByZoneAndCreneau(idZone,idCreneau)
+    promise = attribution_model.getAttributionsByZoneAndCreneau(idZone,idCreneau,idJour)
     promise.then(
         (values) => {
             res.status(200).send(values)
