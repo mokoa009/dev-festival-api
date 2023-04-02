@@ -196,7 +196,7 @@ function selectBenevoleNonSelectByZoneAndCreneau(req, res) {
 
 function deleteAttributionZone(req, res) {
 
-    promise = attribution_model.deleteAttributionZone(req.body.idZone,req.body.idUtilisateur,req.body.idCreneau,req.body.idJour)
+    promise = attribution_model.deleteAttributionZone(req.body.idUtilisateur,req.body.idZone,req.body.idCreneau,req.body.idJour)
     promise.then(
         (values) => {
             res.status(200).send(values)

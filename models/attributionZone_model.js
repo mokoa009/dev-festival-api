@@ -174,7 +174,7 @@ async function getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone,idJour){
 
 
 
-async function deleteAttributionZone(idZone,idUtilisateur,idCreneau,idJour){
+async function deleteAttributionZone(idUtilisateur,idZone,idCreneau,idJour){
     return new Promise((resolve, reject) => {
         const sql = `DELETE FROM AffectationBenevoleCreneau WHERE idZone = ${db.escape(idZone)}  AND idUtilisateur = ${db.escape(idUtilisateur)} AND idCreneau = ${db.escape(idCreneau)}, AND idJour = ${db.escape(idJour)};`
         try { 
