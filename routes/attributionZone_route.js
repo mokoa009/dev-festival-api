@@ -12,6 +12,7 @@ router.get("/all",attributionZone_controller.selectAttributionsByAll)
 router.get("/zone-benevole/:idZone/:idBene",attributionZone_controller.selectCreneauNonSelectByZoneAndBenevole)
 router.get("/zone-creneau/:idZone/:idCreneau",attributionZone_controller.selectBenevoleNonSelectByZoneAndCreneau)
 router.delete("/delete",attributionZone_controller.deleteAttributionZone)
+router.delete("/creneau/delete",attributionZone_controller.deleteAttributionZoneFromCreneau)
 router.post("/create",attributionZone_controller.createAttributionZone)
 
 module.exports = router

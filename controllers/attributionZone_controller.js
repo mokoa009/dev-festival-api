@@ -194,6 +194,23 @@ function selectBenevoleNonSelectByZoneAndCreneau(req, res) {
     })
 }
 
+function deleteAttributionZoneFromCreneau(req, res) {
+
+    promise = attribution_model.deleteAttributionZone(req.body.idCreneau,req.body.idZone,req.body.idJour)
+    promise.then(
+        (values) => {
+            res.status(200).send(values)
+        },
+        (error) => {
+            res.status(400).send({msg: error.message})
+            console.error(error.message)
+        }
+    ).catch((error) => {
+        res.status(500).send({msg: "Problème suppression d'une attribution Zone"})
+        console.error(error.message)
+    })
+}
+
 function deleteAttributionZone(req, res) {
 
     promise = attribution_model.deleteAttributionZone(req.body.idUtilisateur,req.body.idZone,req.body.idCreneau,req.body.idJour)
@@ -240,5 +257,6 @@ module.exports = {
     deleteAttributionZone,
     createAttributionZone,
     selectAttributionsByZoneAndCreneau,
-    selectBenevoleNonSelectByZoneAndCreneau
+    selectBenevoleNonSelectByZoneAndCreneau,
+    deleteAttributionZoneFromCreneau
 }

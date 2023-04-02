@@ -171,12 +171,27 @@ async function getBenevoleNonSelectByZoneAndCreneau(idCreneau,idZone,idJour){
     });
 }
 
-
+async function deleteAttributionZoneFromCreneau(idCreneau,idZone,idJour){
+    return new Promise((resolve, reject) => {
+        const sql = `DELETE FROM AffectationBenevoleCreneau WHERE idCreneau = ${db.escape(idCreneau)} AND idZone = ${db.escape(idZone)} AND idJour = ${db.escape(idJour)};`
+        try { 
+            db.query(sql, [], (err, result) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
+    });
+}
 
 
 async function deleteAttributionZone(idUtilisateur,idZone,idCreneau,idJour){
     return new Promise((resolve, reject) => {
-        const sql = `DELETE FROM AffectationBenevoleCreneau WHERE idZone = ${db.escape(idZone)}  AND idUtilisateur = ${db.escape(idUtilisateur)} AND idCreneau = ${db.escape(idCreneau)}, AND idJour = ${db.escape(idJour)};`
+        const sql = `DELETE FROM AffectationBenevoleCreneau WHERE idZone = ${db.escape(idZone)}  AND idUtilisateur = ${db.escape(idUtilisateur)} AND idCreneau = ${db.escape(idCreneau)} AND idJour = ${db.escape(idJour)};`
         try { 
             db.query(sql, [], (err, result) => {
                 if (err){ 
@@ -218,5 +233,6 @@ module.exports ={
     deleteAttributionZone,
     createAttributionZone,
     getAttributionsByZoneAndCreneau,
-    getBenevoleNonSelectByZoneAndCreneau
+    getBenevoleNonSelectByZoneAndCreneau,
+    deleteAttributionZoneFromCreneau
 }
