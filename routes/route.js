@@ -9,6 +9,8 @@ module.exports = (app) =>{
     const affectationFestivalZoneRouter = require('./attributionFZ_route.js');
     const affectationJourFestivalRouter = require('./attributionJF_route.js');
     const affectationJourZoneRouter = require('./attributionJZ_route.js');
+    const affectationZoneCreneauRouter = require('./attributionZC_route.js');
+
 
 
     app.use('/zones', zoneRouter);
@@ -21,6 +23,8 @@ module.exports = (app) =>{
     app.use('/affectationJF', affectationJourFestivalRouter);
     app.use('/affectationFZ', affectationFestivalZoneRouter);
     app.use('/affectationJZ', affectationJourZoneRouter);
+    app.use('/affectationZC', affectationZoneCreneauRouter);
+
 
     
 }
