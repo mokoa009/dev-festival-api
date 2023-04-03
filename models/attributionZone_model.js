@@ -222,6 +222,27 @@ async function createAttributionZone(idUtilisateur,idZone,idCreneau,idJour){
     });
 }
 
+async function getCountBenevolesAff(idCreneau){
+    return new Promise((resolve, reject) => {
+        const sql = `Select count(*) from \
+                        (SELECT A.idCreneau, A.idUtilisateur \
+                        FROM AffectationBenevoleCreneau as A \
+                        Group by A.idCreneau, A.idUtilisateur) as T \
+                    WHERE T.idCreneau = 8;`
+        try { 
+            db.query(sql, [], (err, result) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
+    });
+}
+
 module.exports ={
     getAttributionsZone,
     getAttributionZone,
@@ -234,5 +255,6 @@ module.exports ={
     createAttributionZone,
     getAttributionsByZoneAndCreneau,
     getBenevoleNonSelectByZoneAndCreneau,
-    deleteAttributionZoneFromCreneau
+    deleteAttributionZoneFromCreneau,
+    getCountBenevolesAff,
 }

@@ -11,6 +11,7 @@ router.get("/benevole/:idUtilisateur",attributionZone_controller.selectAttributi
 router.get("/all",attributionZone_controller.selectAttributionsByAll)
 router.get("/zone-benevole/:idZone/:idBene",attributionZone_controller.selectCreneauNonSelectByZoneAndBenevole)
 router.get("/zone-creneau/:idZone/:idCreneau/:idJour",attributionZone_controller.selectBenevoleNonSelectByZoneAndCreneau)
+router.get("benevoles_creneau_aff/:idCreneau",attributionZone_controller.countBenevolesAff)
 router.delete("/delete",attributionZone_controller.deleteAttributionZone)
 router.delete("/creneau/delete",attributionZone_controller.deleteAttributionZoneFromCreneau)
 router.post("/create",attributionZone_controller.createAttributionZone)

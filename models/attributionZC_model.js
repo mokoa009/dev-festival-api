@@ -55,7 +55,7 @@ async function createAttributionZC(idZone,idCreneau){
     });
 }
 
-async function getCountBenevoles(idCreneau){
+async function getCountBenevolesNec(idCreneau){
     return new Promise((resolve, reject) => {
         const sql = `Select T.nbBenevoles from \
                         (SELECT C.idCreneau, Z.nbBenevoles \
@@ -81,5 +81,5 @@ module.exports ={
     selectAttributionsByZone,
     deleteAttributionZC,
     createAttributionZC,
-    getCountBenevoles
+    getCountBenevolesNec,
 }
