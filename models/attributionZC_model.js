@@ -55,8 +55,31 @@ async function createAttributionZC(idZone,idCreneau){
     });
 }
 
+async function getCountBenevoles(idCreneau){
+    return new Promise((resolve, reject) => {
+        const sql = `Select T.nbBenevoles from \
+                        (SELECT C.idCreneau, Z.nbBenevoles \
+                        FROM AffectationZoneCreneaux as A, Zone as Z, Creneau as C \
+                        where A.idCreneau = C.idCreneau AND A.idZone = Z.idZone \
+                        Group by C.idCreneau, Z.nbBenevoles) as T \
+                    WHERE T.idCreneau = ${db.escape(idCreneau)};`
+        try { 
+            db.query(sql, [], (err, result) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
+    });
+}
+
 module.exports ={
     selectAttributionsByZone,
     deleteAttributionZC,
     createAttributionZC,
+    getCountBenevoles
 }

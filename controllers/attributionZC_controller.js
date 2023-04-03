@@ -69,6 +69,25 @@ function createAttributionZC(req, res) {
             console.error(error.message)
         }
     ).catch((error) => {
+        res.status(500).send({msg: "Problème count bénévoles"})
+        console.error(error.message)
+    })
+}
+
+function countBenevoles(req, res) {
+
+    const idCreneau = req.params.idCreneau
+
+    promise = attribution_model.getCountBenevoles(idCreneau)
+    promise.then(
+        (values) => {
+            res.status(200).send(values)
+        },
+        (error) => {
+            res.status(400).send({msg: error.message})
+            console.error(error.message)
+        }
+    ).catch((error) => {
         res.status(500).send({msg: "Problème création d'une attributione ZC"})
         console.error(error.message)
     })
@@ -79,4 +98,5 @@ module.exports = {
     selectAttributionsByZone,
     deleteAttributionZC,
     createAttributionZC,
+    countBenevoles
 }
