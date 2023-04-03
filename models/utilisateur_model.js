@@ -161,11 +161,29 @@ async function connexionUtilisateur(email,mdp){
     });
 }
 
+async function count(){
+    return new Promise((resolve, reject) => {
+        const sql = "Select count(*) from (SELECT * FROM Utilisateur where isAdmin = 0) as T"
+        try { 
+            db.query(sql, [], (err,result) => {
+                if (err){ 
+                    reject(err) 
+                } else{ 
+                    resolve(result)
+                } 
+            }) 
+        } catch (error) { 
+            reject(error) 
+        }
+    });
+}
+
 module.exports ={
     getUtilisateurs,
     getUtilisateur,
     deleteUtilisateur,
     createUtilisateur,
     updateUtilisateur,
-    connexionUtilisateur
+    connexionUtilisateur,
+    count
 }

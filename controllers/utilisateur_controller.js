@@ -97,6 +97,23 @@ function connexionUtilisateur(req, res) {
     })
 }
 
+function count(req, res) {
+
+    promise = utilisateur_model.count()
+    promise.then(
+        (values) => {
+            res.status(200).send(values)
+        },
+        (error) => {
+            res.status(400).send({msg: error.message})
+            console.error(error.message)
+        }
+    ).catch((error) => {
+        res.status(500).send({msg: error.message})
+        console.error(error.message)
+    })
+}
+
 module.exports = {
     selectUtilisateurs,
     selectUtilisateurById,
@@ -104,4 +121,5 @@ module.exports = {
     createUtilisateur,
     updateUtilisateurById,
     connexionUtilisateur,
+    count,
 }

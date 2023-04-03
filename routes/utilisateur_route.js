@@ -5,6 +5,7 @@ const { verifConnecte, verifMemeId,verifLogin } = require('../middleware/utilisa
 
 router.get("/",utilisateur_controller.selectUtilisateurs)
 router.get("/profil/:id",verifMemeId,utilisateur_controller.selectUtilisateurById)
+router.get("/count",verifMemeId,utilisateur_controller.count)
 router.delete("/delete",verifMemeId,utilisateur_controller.deleteUtilisateur)
 router.post("/create",verifLogin,utilisateur_controller.createUtilisateur)
 router.put("/update",verifMemeId,utilisateur_controller.updateUtilisateurById)
